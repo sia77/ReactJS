@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+
+}
+
+.mainBox{
+    position: absolute;
+    background-color: #0B2434;
+    width:360px;
+    height: 379px;
+    transform: translate(-50%,-50%);
+    top: 50%;    
+    left: 50%;
+}
+
+.whiteBox{
+    background-color: #F5F5F5;
+    width: 320px;
+    height: 320px;
+    position: inherit;
+    transform: translate(-50%, -50%);
+    top: 50%;    
+    left: 50%;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.textArea{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.textArea .title {
+    color: #2B283A;
+    font-size: 24px;
+    font-family: 'Karla', sans-serif;
+}
+
+.text{
+    font-size: 13px;
+}
+
+
+.dice_face{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+    color: #2B283A;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dice_row{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    height: 100px;
+    align-items: center;
+
+}
+
+.roll-button{
+    background-color:#5035FF;
+    color:#fff;
+    border:none;
+    padding:10px 30px;
+    border-radius: 3px;
+}
+
+.button-cotainer{
+    text-align: center;
+}
+
+.game-area{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 120px;
+    width: 80%;
+    margin: 0 auto;
+}
