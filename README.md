@@ -1,3 +1,3 @@
 # A game of Tenzies
-The original idea come from a scrimba tutorial
+The original idea comes from a scrimba tutorial
 
