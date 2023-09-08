@@ -51,15 +51,17 @@ body {
 
 
 .dice_face{
-    display: flex;
-    justify-content: center;
+    display: grid;
     align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
     height: 35px;
     width: 35px;
     color: #2B283A;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     cursor: pointer;
+    padding:5px;
 }
 
 .dice_row{
@@ -77,6 +79,7 @@ body {
     border:none;
     padding:10px 30px;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 .button-cotainer{
@@ -90,4 +93,61 @@ body {
     height: 120px;
     width: 80%;
     margin: 0 auto;
+}
+
+.dot{
+    width: 5px;
+    height: 5px;
+    background-color: #333;
+    border-radius: 50%;
+}
+
+/* .dot_1{
+    align-content: space-around;
+    justify-content: space-around;
+} */
+
+.dot.dot_1,
+.dot.dot_7{
+    visibility:hidden;
+}
+
+.dice_face_1 .dot_0,
+.dice_face_1 .dot_2,
+.dice_face_1 .dot_3,
+.dice_face_1 .dot_5,
+.dice_face_1 .dot_6,
+.dice_face_1 .dot_7,
+.dice_face_1 .dot_8{
+    visibility:hidden;
+}
+
+.dice_face_2 .dot_2,
+.dice_face_2 .dot_3,
+.dice_face_2 .dot_4,
+.dice_face_2 .dot_5,
+.dice_face_2 .dot_6{
+    visibility:hidden;
+}
+
+.dice_face_3 .dot_2,
+.dice_face_3 .dot_3,
+.dice_face_3 .dot_5,
+.dice_face_3 .dot_6{
+    visibility:hidden;
+}
+
+.dice_face_4 .dot_3,
+.dice_face_4 .dot_4,
+.dice_face_4 .dot_5{
+    visibility:hidden;
+}
+
+.dice_face_5 .dot_3,
+.dice_face_5 .dot_5{
+    visibility:hidden;
+}
+
+.dice_face_6 .dot_4{
+    visibility:hidden;
 }
