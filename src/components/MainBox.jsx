@@ -1,6 +1,7 @@
 import React from 'react'
 import Dice from './dice'
 import Button from './rollButton';
+import Rollcount from './Rollcount';
 import {nanoid} from "nanoid"
 import Confetti from 'react-confetti'; 
 
@@ -9,6 +10,7 @@ export default function MainBox(){
     
     const [diceArr, setDiceArr] = React.useState(initilizeArray());
     const [tenzies, setTenzies] = React.useState(false);
+    const [rollCounts, setRollCounts] = React.useState(0);
 
     React.useEffect(()=>{
         
@@ -36,6 +38,8 @@ export default function MainBox(){
 
     function updateDicesFace(){
 
+        setRollCounts(oldCount=> oldCount +1);
+
         if(!tenzies){
             setDiceArr(oldFaceArr => 
                 oldFaceArr.map( die => 
@@ -43,10 +47,19 @@ export default function MainBox(){
                 )            
             )
         }else{
-            setDiceArr(initilizeArray())
             setTenzies(false);
+            runWithDelay(0);            
         }
+    }
 
+    function runWithDelay(count){
+        if(count<10){
+            setDiceArr(initilizeArray());
+            setTimeout(()=>{
+                runWithDelay(count+1)
+            }, 100)
+            
+        }
     }
 
     function selectDice(id){ 
@@ -61,27 +74,30 @@ export default function MainBox(){
     }
 
     return (
-
-        <div className="mainBox">
+        <div>
             {tenzies && <Confetti /> }
-            <div className="whiteBox">
-                <div className='textArea'>
-                    <div className='title'>Tenzies</div>
-                    <div className='text'>
-                        Roll until all dice are the same. 
-                        Click each die to freeze it at its current value between rolls.
+            <div className="mainBox">
+                {tenzies && <Rollcount rollCounts={rollCounts} />}
+                
+                <div className="whiteBox">
+                    <div className='textArea'>
+                        <div className='title'>Tenzies</div>
+                        <div className='text'>
+                            Roll until all dice are the same. 
+                            Click each die to freeze it at its current value between rolls.
+                        </div>
                     </div>
-                </div>
-                <div className="game-area">
-                    <div className='dice_row'>
-                    {
-                        generateDices()
-                    }
-                    </div>
+                    <div className="game-area">
+                        <div className='dice_row'>
+                        {
+                            generateDices()
+                        }
+                        </div>
 
-                </div>
-                <div className='button-cotainer'>
-                    <Button handler={updateDicesFace} tenzies={tenzies} />
+                    </div>
+                    <div className='button-cotainer'>
+                        <Button handler={updateDicesFace} tenzies={tenzies} />
+                    </div>
                 </div>
             </div>
         </div>
